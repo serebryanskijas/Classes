@@ -12,12 +12,16 @@ public class TreeTraversal {
         tree.addRight('6', 3);
         tree.print();
         tree.preOrder('0');
+        System.out.println();
+        tree.postOrder('0');
+        System.out.println();
+        tree.inOrder('0');
     }
 }
 
 class Tree1 {
-    int root = 0;
-    char[] arr = new char[100];
+    static int root = 0;
+    static char[] arr = new char[9];
 
     public void addRoot(char key) {
         arr[0] = key;
@@ -63,6 +67,21 @@ class Tree1 {
         System.out.print(key+" ");
     preOrder(getLeft(key));
     preOrder(getRight(key));
+    }
+
+    public void postOrder(char key) {
+        if (key == 0) return;
+        postOrder(getLeft(key));
+        postOrder(getRight(key));
+        System.out.print(key+" ");
+    }
+
+    public void inOrder(char key) {
+        if (key == 0) return;
+        inOrder(getLeft(key));
+        System.out.print(key+" ");
+        inOrder(getRight(key));
+
     }
 
 }
